@@ -1,0 +1,131 @@
+[
+  {
+    "name": "Дима",
+    "surname": "Светлов",
+    "email": "1@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Беларусь",
+      "city": "Минск"
+    },
+    "birthDate": "3 июля 1992",
+    "status": "Не путайте занятость с прогрессом"
+  },
+
+  {
+    "name": "Андрей",
+    "surname": "Курчинский",
+    "email": "2@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Украина",
+      "city": "Киев"
+    },
+    "birthDate": "2 августа 1991",
+    "status": null
+  },
+
+  {
+    "name": "Марина",
+    "surname": "Фельшер",
+    "email": "3@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Польша",
+      "city": "Варшава"
+    },
+    "birthDate": "7 ноября 1986",
+    "status": "Ты смог бы, если бы делал"
+  },
+
+  {
+    "name": "Настя",
+    "surname": "Ульянова",
+    "email": "4@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Чехия",
+      "city": "Прага"
+    },
+    "birthDate": "18 апреля 1995",
+    "status": null
+  },
+
+  {
+    "name": "Оля",
+    "surname": "Змитрович",
+    "email": "5@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Канада",
+      "city": "Торонто"
+    },
+    "birthDate": "11 ноября 1990",
+    "status": "Все цветочки"
+  },
+
+  {
+    "name": "Андрей",
+    "surname": "Петров",
+    "email": "6@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Россия",
+      "city": "Санкт-Питербург"
+    },
+    "birthDate": "18 сентября 1999",
+    "status": null
+  },
+
+  {
+    "name": "Петр",
+    "surname": "Вирнас",
+    "email": "7@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Израиль",
+      "city": "Иерусалим"
+    },
+    "birthDate": "11 мая 1985",
+    "status": "Ищу работу"
+  },
+
+  {
+    "name": "Николас",
+    "surname": "Кейдж",
+    "email": "8@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "США",
+      "city": "Калифорния"
+    },
+    "birthDate": "21 октября 1978",
+    "status": "Снимаюсь в кино"
+  },
+
+  {
+    "name": "Штейнер",
+    "surname": "Раш",
+    "email": "9@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Норвегия",
+      "city": "Осло"
+    },
+    "birthDate": "5 июня 1985",
+    "status": "Ищу верстальшика Димона"
+  },
+
+  {
+    "name": "Терлэг",
+    "surname": "Шварц",
+    "email": "10@mail.ru",
+    "password": "123",
+    "location": {
+      "country": "Шотладния",
+      "city": "Эдинбург"
+    },
+    "birthDate": "1 мартя 1992",
+    "status": null
+  }
+]
