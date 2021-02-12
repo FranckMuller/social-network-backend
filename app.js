@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const path = require('path');
+const fileUpload = require('express-fileupload');
+
 const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
 const profileRoutes = require('./routes/profile');
@@ -22,22 +24,22 @@ mongoose
   });
 
 mongoose.connection.on('error', (err) => {
-  console.log(`Database disconnected, error: ${error.message}`);
+  console.log(`Database disconnected, error: ${err.message}`);
 });
 
 const app = express();
-app.use(express.static(path.join(__dirname, './uploads')));
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static('uploads'));
 app.use(
   cors({
     credentials: true,
     origin: 'http://localhost:3000',
   })
 );
+app.use(fileUpload({uriDecodeFileNames: true}));
+app.use(express.static('public'));
 app.use(authRoutes);
 app.use(usersRoutes);
 app.use(profileRoutes);
