@@ -11,6 +11,7 @@ const fileUpload = require('express-fileupload');
 const authRoutes = require('./routes/auth');
 const usersRoutes = require('./routes/users');
 const profileRoutes = require('./routes/profile');
+const postRoutes = require('./routes/post');
 
 dotenv.config();
 
@@ -43,6 +44,7 @@ app.use(express.static('public'));
 app.use(authRoutes);
 app.use(usersRoutes);
 app.use(profileRoutes);
+app.use(postRoutes);
 
 app.use((err, req, res, next) => {
   if (err.name === 'UnauthorizedError') {

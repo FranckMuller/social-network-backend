@@ -1,16 +1,5 @@
 const User = require('./../models/user');
 
-exports.getUserProfile = async (req, res) => {
-  try {
-    const user = await User.findById(req.params.id);
-    user.populate('following', '_id name');
-    user.populate('followers', '_id name');
-    return res.status(200).json(user);
-  } catch (error) {
-    return res.status(404).json('User not found');
-  }
-};
-
 exports.getUsers = (req, res) => {
   let page = req.query.page;
   let limit = req.query.limit;
@@ -25,7 +14,7 @@ exports.getUsers = (req, res) => {
     .then((users) => {
       User.findById(req.auth.id).then((authedUser) => {
         const newUsers = users.docs.map((user) => {
-          if (authedUser.following.findIndex((follow) => user._id.equals(follow)) !== -1) {
+          if (authedUser.followings.findIndex((follow) => user._id.equals(follow)) !== -1) {
             return {
               ...user._doc,
               isFollowed: true,
@@ -54,7 +43,7 @@ exports.addFollowing = (req, res, next) => {
   User.findByIdAndUpdate(
     req.auth.id,
     {
-      $push: { following: req.params.id },
+      $push: { followings: req.params.id },
     },
     (err, result) => {
       if (err) {
@@ -73,7 +62,7 @@ exports.addFollower = (req, res) => {
     },
     { new: true }
   )
-    .populate('following', '_id name surname')
+    .populate('followings', '_id name surname')
     .populate('followers', '_id name surname')
     .exec((err, user) => {
       if (err) {
@@ -86,7 +75,7 @@ exports.addFollower = (req, res) => {
 
 // remove follow unfollow
 exports.removeFollowing = (req, res, next) => {
-  User.findByIdAndUpdate(req.auth.id, { $pull: { following: req.params.id } }, (err, result) => {
+  User.findByIdAndUpdate(req.auth.id, { $pull: { followings: req.params.id } }, (err, result) => {
     if (err) {
       return res.status(400).json({ error: err });
     }
@@ -96,7 +85,7 @@ exports.removeFollowing = (req, res, next) => {
 
 exports.removeFollower = (req, res) => {
   User.findByIdAndUpdate(req.params.id, { $pull: { followers: req.auth.id } }, { new: true })
-    .populate('following', '_id name')
+    .populate('followings', '_id name')
     .populate('followers', '_id name')
     .exec((err, result) => {
       if (err) {

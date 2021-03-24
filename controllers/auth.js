@@ -72,6 +72,7 @@ exports.signin = (req, res) => {
       name: user.name,
       surname: user.surname,
       email: user.email,
+      photo: user.photos.small
     };
 
     return res.status(200).json(authData);

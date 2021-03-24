@@ -7,6 +7,18 @@ exports.setLastActivity = (req, res, next) => {
   })
 }
 
+exports.getUserProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
+    user.populate('followings', '_id name')
+    user.populate('followers', '_id name')
+
+    return res.status(200).json(user)
+  } catch (error) {
+    return res.status(404).json('User not found')
+  }
+}
+
 exports.updateUserProfile = (req, res) => {
   const entries = Object.keys(req.body.userData)
   const updates = {}
